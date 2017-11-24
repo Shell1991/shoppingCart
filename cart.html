@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>购物车</title>
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
 </head>
 <body>
+<div class="cart">
+    <div class="checkout-title">
+        <span>购物车</span>
+    </div>
+</div>
 
+<!--商品列表，这里使用ul li组合而不是table，因为table在DOM渲染方面有问题-->
+<div class="item-list-wrap">
+    <div class="cart-item">
+        <div class="cart-item-head">
+            <ul>
+                <li>商品信息</li>
+                <li>商品金额</li>
+                <li>商品数量</li>
+                <li>总金额</li>
+                <li>编辑</li>
+            </ul>
+        </div>
+        <ul>
+            <li>
+                <div class="cart-tab-1">
+                    <div class="cart-item-check">
+                        <a href="javascript:;" class="item-check-btn">
+                            <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
+                        </a>
+                    </div>
+                    <div class="cart-item-pic">
+                        <img src="img/goods-1.jpg" alt="烟">
+                    </div>
+                    <div class="cart-item-name">黄鹤楼香烟</div>
+                    <div class="item-include">
+                        <dl>
+                            <dt>赠送：</dt>
+                            <dt>打火机</dt>
+                        </dl>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,61 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.cart{
+
+}
+/*(1)position 的定位问题 :before是css中的伪元素，可以认为是checkout-title类的一个子元素，
+将checkout-title类的position设置为relative，其伪元素的position是absolute，此时伪元素相对于checkout-title绝对定位，
+而checkout-title下的span子元素的position为relative，其相对于checkout-title相对定位*/
+.checkout-title{
+    position: relative;
+    text-align: center;
+}
+.checkout-title:before{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    z-index: 0;
+}
+.checkout-title span{
+    /*position: relative;*/
+    padding: 0 1em;
+    background-color: #fff;
+    font-family: "moderat", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #605F5F;
+    z-index: 1;
+}
+/*title结束*/
+
+
+.item-list-wrap{
+
+}
+.cart-item{
+
+}
+.cart-item-check{
+
+}
+/**/
+.cart-item-head{
+
+}
+ul li{
+    float: left;
+}
+.cart-item-name{
+
+}
+.cart-item-pic{
+
+}
