@@ -10,6 +10,7 @@ body, html{
     width: 80%;
     margin: 0 auto;
 }
+
 /*(1)position 的定位问题 :before是css中的伪元素，可以认为是checkout-title类的一个子元素，
 将checkout-title类的position设置为relative，其伪元素的position是absolute，此时伪元素相对于checkout-title绝对定位，
 而checkout-title下的span子元素的position为relative，其相对于checkout-title相对定位*/
@@ -40,9 +41,12 @@ body, html{
 }
 /*title结束*/
 
+.cart-item{
+    margin-top: 2em;
+    border:1px solid #cccccc;
+}
 /*em——一种单位，百度百科上给出的定义是：em单位名称为相对长度单位，相对于当前对象内文本的字体尺寸；类似于px，与px不同的一点是，em是弹性的*/
 .cart-item-head{
-    margin-top: 2em;
     background-color: #605F5F;
     overflow: hidden;
 }
@@ -110,4 +114,25 @@ ul li:first-child{
 }
 .cart-item .price, .cart-item .total, .cart-item .edit{
     line-height: 100px;
+}
+.item-foot{
+    margin-top: 20px;
+    font-size: 16px;
+}
+.select-all{
+    float: left;
+}
+.pay-detail{
+    float: right;
+}
+.pay-detail> span{
+    color: #d1434a;
+    font-size: 18px;
+}
+#pay{
+    padding:20px 80px;
+    margin-left: 20px;
+    background-color: #d1434a;
+    color: #ffffff;
+    border: none;
 }
