@@ -3,9 +3,12 @@ body, html{
     padding: 0;
     height: 100%;
     width: 100%;
+    font-size: 14px;
 }
-.cart{
-
+.cart, .item-list-wrap{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
 }
 /*(1)position 的定位问题 :before是css中的伪元素，可以认为是checkout-title类的一个子元素，
 将checkout-title类的position设置为relative，其伪元素的position是absolute，此时伪元素相对于checkout-title绝对定位，
@@ -13,6 +16,7 @@ body, html{
 .checkout-title{
     position: relative;
     text-align: center;
+    margin-top: 3em;
 }
 .checkout-title:before{
     position: absolute;
@@ -25,7 +29,7 @@ body, html{
     z-index: 0;
 }
 .checkout-title span{
-    /*position: relative;*/
+    position: relative;
     padding: 0 1em;
     background-color: #fff;
     font-family: "moderat", sans-serif;
@@ -36,26 +40,74 @@ body, html{
 }
 /*title结束*/
 
-
-.item-list-wrap{
-
-}
-.cart-item{
-
-}
-.cart-item-check{
-
-}
-/**/
+/*em——一种单位，百度百科上给出的定义是：em单位名称为相对长度单位，相对于当前对象内文本的字体尺寸；类似于px，与px不同的一点是，em是弹性的*/
 .cart-item-head{
-
+    margin-top: 2em;
+    background-color: #605F5F;
+    overflow: hidden;
+}
+/*在浏览器中，会默认给ul增添margin-before和margin-after属性，默认情况下，相当于margin-top和margin-bottom*/
+ul{
+    overflow: hidden;
+    padding: 0;
+}
+.cart-item-head ul li{
+    color: #ffffff;
+    font-size: 18px;
 }
 ul li{
     float: left;
+    /*li前面符号的样式*/
+    list-style-type: none;
+    text-align: center;
+    width: 17.5%;
 }
-.cart-item-name{
-
+ul li:first-child{
+    width:30%;
 }
-.cart-item-pic{
 
+.cart-tab-list .cart-item-check{
+    float: left;
+    line-height: 100px;
+}
+.cart-tab-list .cart-item-pic{
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-left: 20%;
+    margin-right: 3%;
+}
+.cart-tab-list .cart-item-name {
+    text-align: left;
+    padding-top: 4%;
+    padding-left: 55%;
+}
+.cart-tab-list .item-include{
+    padding-left: 55%;
+}
+.cart-tab-list .item-include dt{
+    float: left;
+}
+.cart-tab-list .item-include dd{
+    padding-left: 10px;
+    text-align: left;
+}
+
+.cart-item .num{
+    padding-top: 20px;
+}
+.cart-item .num input{
+    line-height: 20px;
+    border-radius: 2px;
+    padding:2px 12px;
+    width:60%;
+}
+.cart-item .num .add, .cart-item .num .delete{
+    cursor: pointer;
+}
+.cart-item .num .stock{
+    font-size: 12px;
+}
+.cart-item .price, .cart-item .total, .cart-item .edit{
+    line-height: 100px;
 }

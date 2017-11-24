@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>购物车</title>
     <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
 <div class="cart">
@@ -25,23 +26,56 @@
             </ul>
         </div>
         <ul>
+            <!--商品信息-->
             <li>
-                <div class="cart-tab-1">
+                <div class="cart-tab-list">
                     <div class="cart-item-check">
-                        <a href="javascript:;" class="item-check-btn">
-                            <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
-                        </a>
+                        <!--<a href="javascript:;" class="item-check-btn">-->
+                            <!--<svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>-->
+                        <!--</a>-->
+                        <input type="checkbox">
                     </div>
                     <div class="cart-item-pic">
-                        <img src="img/goods-1.jpg" alt="烟">
+                        <img src="img/goods-1.jpg" alt="烟" width="100%" align="center" >
                     </div>
                     <div class="cart-item-name">黄鹤楼香烟</div>
                     <div class="item-include">
                         <dl>
                             <dt>赠送：</dt>
-                            <dt>打火机</dt>
+                            <dd>打火机</dd>
+                            <dd>口香糖</dd>
                         </dl>
                     </div>
+                </div>
+            </li>
+            <!--商品金额-->
+            <li>
+                <div class="price">
+                    <span>￥19</span>
+                </div>
+            </li>
+            <!--商品数量-->
+            <li>
+                <div class="num">
+                    <div>
+                        <span class="add">+</span>
+                        <span class="delete">-</span>
+                    </div>
+                    <input type="text" readonly value="1">
+                    <div class="stock">有货</div>
+                </div>
+
+            </li>
+            <!--总金额-->
+            <li>
+                <div class="total">
+                    <span>￥19.00元</span>
+                </div>
+            </li>
+            <!--编辑-->
+            <li>
+                <div class="edit">
+                    <i class="icon icon-trash"></i>
                 </div>
             </li>
         </ul>
