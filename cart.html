@@ -7,91 +7,97 @@
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
-<div class="cart">
-    <div class="checkout-title">
-        <span>购物车</span>
+<div id="app">
+    <div class="cart">
+        <div class="checkout-title">
+            <span>购物车</span>
+        </div>
     </div>
-</div>
 
-<!--商品列表，这里使用ul li组合而不是table，因为table在DOM渲染方面有问题-->
-<div class="item-list-wrap">
-    <div class="cart-item">
-        <div class="cart-item-head">
-            <ul>
-                <li>商品信息</li>
-                <li>商品金额</li>
-                <li>商品数量</li>
-                <li>总金额</li>
-                <li>编辑</li>
+    <!--商品列表，这里使用ul li组合而不是table，因为table在DOM渲染方面有问题-->
+    <div class="item-list-wrap">
+        <div class="cart-item">
+            <div class="cart-item-head">
+                <ul>
+                    <li>商品信息</li>
+                    <li>商品金额</li>
+                    <li>商品数量</li>
+                    <li>总金额</li>
+                    <li>编辑</li>
+                </ul>
+            </div>
+            <ul v-for="item in productList">
+                <!--商品信息-->
+                <li class="basic-info">
+                    <div class="cart-tab-list">
+                        <div class="cart-item-check">
+                            <!--(8)监听item中的check属性，如果true，表示当前是选中状态，使用fa-check-square-o类，如果是false，表示当前是未选中状态，使用fa-square-o类
+                            并且通过@click事件绑定的方法来改变item.check的值，在item中如果没有check属性，需要使用Vue.set()方法或$set()方法来给item注册属性-->
+                            <i class="fa" v-bind:class="item.check ? 'fa-check-square-o' : 'fa-square-o'" @click="checkedProduct(item)"></i>
+                        </div>
+                        <div class="cart-item-pic">
+                            <img v-bind:src="item.productImage" width="100%" align="center">
+                        </div>
+                        <div class="cart-item-name">{{item.productName}}</div>
+                        <div class="item-include">
+                            <dl>
+                                <dt>赠送：</dt>
+                                <dd v-for="part in item.parts" v-text="part.partsName"></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </li>
+                <!--商品金额-->
+                <li class="product-price">
+                    <div class="price">
+                        <!--(3)普通过滤器的使用方式-->
+                        <span>{{item.productPrice | moneyFormat}}</span>
+                    </div>
+                </li>
+                <!--商品数量-->
+                <li class="product-num">
+                    <div class="num">
+                        <div>
+                            <!--(5)vue绑定事件：两种方式，一种是v-on，一种是直接通过@-->
+                            <span class="add" v-on:click="changeQuantity(item, 1)">+</span>
+                            <input type="text" readonly v-model="item.productQuantity" >
+                            <span class="delete" @click="changeQuantity(item, -1)">-</span>
+                        </div>
+                        <div class="stock">有货</div>
+                    </div>
+                </li>
+                <!--总金额-->
+                <li class="product-total">
+                    <div class="total">
+                        <!--(3)带有参数的过滤器的使用方式-->
+                        <span>{{item.productPrice * item.productQuantity | transferMoney("元")}}</span>
+                    </div>
+                </li>
+                <!--编辑-->
+                <li>
+                    <div class="edit">
+                        <i class="fa fa-trash"></i>
+                    </div>
+                </li>
             </ul>
         </div>
-        <ul>
-            <!--商品信息-->
-            <li>
-                <div class="cart-tab-list">
-                    <div class="cart-item-check">
-                        <!--<a href="javascript:;" class="item-check-btn">-->
-                            <!--<svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>-->
-                        <!--</a>-->
-                        <input type="checkbox">
-                    </div>
-                    <div class="cart-item-pic">
-                        <img src="img/goods-1.jpg" alt="烟" width="100%" align="center" >
-                    </div>
-                    <div class="cart-item-name">黄鹤楼香烟</div>
-                    <div class="item-include">
-                        <dl>
-                            <dt>赠送：</dt>
-                            <dd>打火机</dd>
-                            <dd>口香糖</dd>
-                        </dl>
-                    </div>
-                </div>
-            </li>
-            <!--商品金额-->
-            <li>
-                <div class="price">
-                    <span>￥19</span>
-                </div>
-            </li>
-            <!--商品数量-->
-            <li>
-                <div class="num">
-                    <div>
-                        <span class="add">+</span>
-                        <span class="delete">-</span>
-                    </div>
-                    <input type="text" readonly value="1">
-                    <div class="stock">有货</div>
-                </div>
+        <div class="item-foot">
+            <!--全选-->
+            <div class="select-all">
+                <i class="fa fa-square-o" v-on:click="selectAll()"> 全选</i>
+            </div>
 
-            </li>
-            <!--总金额-->
-            <li>
-                <div class="total">
-                    <span>￥19.00元</span>
-                </div>
-            </li>
-            <!--编辑-->
-            <li>
-                <div class="edit">
-                    <i class="icon icon-trash"></i>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="item-foot">
-        <!--全选-->
-        <div class="select-all">
-            <input type="checkbox">全选
-        </div>
-
-        <!--全部金额-->
-        <div class="pay-detail">
-            全部金额：<span>￥<span class="pay-num">0.00</span>元</span>
-            <button type="button" id="pay">结 账</button>
+            <!--全部金额-->
+            <div class="pay-detail">
+                全部金额：<span>￥<span class="pay-num">0.00</span>元</span>
+                <button type="button" id="pay">结 账</button>
+            </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="static/vue/vue.min.js"></script>
+<script type="text/javascript" src="static/vue/vue-resource.js"></script>
+<script type="text/javascript" src="js/cart.js"></script>
 </body>
 </html>
