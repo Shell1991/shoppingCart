@@ -5,7 +5,9 @@ var vm = new Vue({
     data : {
         productList : [],
         totalMoney : 0,
-        selectAllFlag : false
+        selectAllFlag : false,
+        delFlag : false,
+        curProduct: ''
     },
     //(3)filters,vue的过滤器，在这里面定义的过滤器都是局部过滤器
     filters : {
@@ -93,6 +95,20 @@ var vm = new Vue({
             this.productList.forEach(function (item, index) {
                 if(item.check){
                     _this.totalMoney += item.productQuantity * item.productPrice;
+                }
+            })
+        },
+        // （10）删除功能
+        changeDelFlag : function (item) {
+            this.delFlag = true;
+            this.curProduct = item;
+        },
+        delProduct : function () {
+            this.$http.post("data/delResult.json", {"id" : this.curProduct.productId}).then(function (res) {
+                var rs = res.body;
+                if(rs.message == "success"){
+                    this.productList = rs.result.list;
+                    this.delFlag = false;
                 }
             })
         }

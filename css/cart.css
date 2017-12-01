@@ -1,11 +1,12 @@
-body, html{
+body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
     font-size: 14px;
 }
-.cart, .item-list-wrap{
+
+.cart, .item-list-wrap {
     position: relative;
     width: 90%;
     margin: 0 auto;
@@ -14,12 +15,13 @@ body, html{
 /*(1)position 的定位问题 :before是css中的伪元素，可以认为是checkout-title类的一个子元素，
 将checkout-title类的position设置为relative，其伪元素的position是absolute，此时伪元素相对于checkout-title绝对定位，
 而checkout-title下的span子元素的position为relative，其相对于checkout-title相对定位*/
-.checkout-title{
+.checkout-title {
     position: relative;
     text-align: center;
     margin-top: 3em;
 }
-.checkout-title:before{
+
+.checkout-title:before {
     position: absolute;
     top: 50%;
     left: 0;
@@ -29,7 +31,8 @@ body, html{
     background: #ccc;
     z-index: 0;
 }
-.checkout-title span{
+
+.checkout-title span {
     position: relative;
     padding: 0 1em;
     background-color: #fff;
@@ -39,118 +42,145 @@ body, html{
     color: #605F5F;
     z-index: 1;
 }
+
 /*title结束*/
 
-.cart-item{
+.cart-item {
     margin-top: 2em;
-    border:1px solid #cccccc;
+    border: 1px solid #cccccc;
 }
+
 /*em——一种单位，百度百科上给出的定义是：em单位名称为相对长度单位，相对于当前对象内文本的字体尺寸；类似于px，与px不同的一点是，em是弹性的*/
-.cart-item-head{
+.cart-item-head {
     background-color: #605F5F;
     overflow: hidden;
 }
+
 /*在浏览器中，会默认给ul增添margin-before和margin-after属性，默认情况下，相当于margin-top和margin-bottom*/
-ul{
+ul {
     overflow: hidden;
-    padding-left: 10px;
+    padding: 30px;
 }
-.cart-item-head ul li{
-    color: #ffffff;
-    font-size: 18px;
-}
-ul li{
+
+ul li {
     float: left;
     /*li前面符号的样式*/
     list-style-type: none;
     text-align: center;
     width: 16%;
 }
-ul li:first-child{
-    width:35%;
+
+ul li:first-child {
+    width: 35%;
 }
+
+.cart-item-head ul {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.cart-item-head ul li {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.cart-item-body ul {
+    padding-left: 10px;
+    border-top: 1px solid #dddddd;
+    margin-bottom: 0px;
+}
+
 /*复选框*/
-.cart-tab-list .cart-item-check{
+.cart-tab-list .cart-item-check {
     float: left;
     line-height: 80px;
-    height:20px;
-    width:20px;
+    height: 20px;
+    width: 20px;
 }
+
 /*图片*/
-.cart-tab-list .cart-item-pic{
+.cart-tab-list .cart-item-pic {
     float: left;
     width: 80px;
     height: 80px;
     margin-left: 5%;
     margin-right: 3%;
 }
+
 /*名称*/
 .cart-tab-list .cart-item-name {
     text-align: left;
     padding-top: 4%;
     padding-left: 50%;
 }
+
 /*赠品*/
-.cart-tab-list .item-include{
+.cart-tab-list .item-include {
     padding-left: 50%;
 }
-dl{
+
+dl {
     font-size: 12px;
 }
-dl dt{
+
+dl dt {
     float: left;
 }
-dl dd{
+
+dl dd {
     text-align: left;
     color: #999999;
 }
+
 /*数量*/
-.cart-item .num{
+.cart-item .num {
     padding-top: 20px;
 }
-.cart-item .num input{
+
+.cart-item .num input {
     line-height: 20px;
-    padding:2px 12px;
-    width:40%;
+    padding: 2px 12px;
+    width: 40%;
 }
-.cart-item .num .add, .cart-item .num .delete{
+
+.cart-item .num .add, .cart-item .num .delete {
     cursor: pointer;
 }
-.cart-item .num .stock{
+
+.cart-item .num .stock {
     font-size: 12px;
 }
+
 /*价格*/
-.cart-item .price, .cart-item .total, .cart-item .edit{
+.cart-item .price, .cart-item .total, .cart-item .edit {
     line-height: 80px;
 }
+
 /*总价*/
-.cart-item .total{
+.cart-item .total {
     color: darkred;
 }
-.cart-item>ul{
-    padding-top: 10px;
-    padding-left:10px;
-    border-top: 1px solid #dddddd;
-}
-.cart-item>ul:first-child{
-    border-top:none;
-}
-.item-foot{
+
+.item-foot {
     margin-top: 20px;
     font-size: 16px;
 }
-.select-all{
+
+.select-all {
     float: left;
 }
-.pay-detail{
+
+.pay-detail {
     float: right;
 }
-.pay-detail> span{
+
+.pay-detail > span {
     color: #d1434a;
     font-size: 18px;
 }
-#pay{
-    padding:20px 80px;
+
+#pay {
+    padding: 20px 80px;
     margin-left: 20px;
     background-color: #d1434a;
     color: #ffffff;
