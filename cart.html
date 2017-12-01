@@ -84,12 +84,12 @@
         <div class="item-foot">
             <!--全选-->
             <div class="select-all">
-                <i class="fa fa-square-o" v-on:click="selectAll()"> 全选</i>
+                <i class="fa" :class="selectAllFlag ? 'fa-check-square-o' : 'fa-square-o'" @click="selectAll()"> 全选</i>
             </div>
 
             <!--全部金额-->
             <div class="pay-detail">
-                全部金额：<span>￥<span class="pay-num">0.00</span>元</span>
+                全部金额：<span>{{totalMoney | transferMoney("元")}}</span>
                 <button type="button" id="pay">结 账</button>
             </div>
         </div>
