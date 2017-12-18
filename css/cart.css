@@ -168,6 +168,7 @@ dl dd {
 
 .select-all {
     float: left;
+    line-height: 50px;
 }
 
 .pay-detail {
@@ -175,8 +176,10 @@ dl dd {
 }
 
 .pay-detail > span {
+    display: inline-block;
     color: #d1434a;
     font-size: 18px;
+    width:80px;
 }
 
 #pay {

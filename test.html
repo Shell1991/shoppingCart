@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{totalMsg}}</p>
+    <button @click="changeMsg">改变</button>
+</div>
+
+
+<script type="text/javascript" src="static/vue/vue.min.js"></script>
+<script>
+    new Vue({
+        el :"#app",
+        data:{
+            msg : "hello"
+        },
+        mounted:function () {
+          this.$nextTick(function () {
+
+          })  
+        },
+        computed:{
+            totalMsg : function () {
+                return this.msg + "Vue";
+            }
+        },
+        methods:{
+            changeMsg:function () {
+                if(this.msg == "hello"){
+                    this.msg = "Hello";
+                }else{
+                    this.msg = "hello";
+                }
+
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

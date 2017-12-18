@@ -2,9 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>选择地址</title>
+    <link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/address.css">
 </head>
 <body>
-
+<section class="container">
+    <!--地址确认、查看订单、支付和订单确认-->
+    <div class="step">
+        <ul>
+            <li class="current">地址确认</li>
+            <li>查看订单</li>
+            <li>支付</li>
+            <li>订单确认</li>
+        </ul>
+    </div>
+    <!--配送地址字样-->
+    <div class="subTitle">
+        <span>配送地址</span>
+    </div>
+    <!--配送地址卡片-->
+    <div class="addressCard">
+        <ul>
+            <li v-for="(item, index) in filterAddress">
+                <dl>
+                    <dt class="name">{{item.userName}}</dt>
+                    <dd class="address">{{item.streetName}}</dd>
+                    <dd class="tel">{{item.tel}}</dd>
+                </dl>
+                <div class="addressEdit">
+                    <i class="fa fa-edit"></i>
+                </div>
+                <div class="addressDelete">
+                    <i class="fa fa-trash"></i>
+                </div>
+                <div class="addressDefault">
+                    <a href="javascript:;" class="isDefault" v-if="item.isDefault">默认地址</a>
+                    <a href="javascript:;" class="setDefault" v-if="!item.isDefault">设为默认</a>
+                </div>
+            </li>
+            <!--添加新地址-->
+            <li class="addNewAddress">
+                <i class="fa fa-plus"></i>
+                <p>添加新地址</p>
+            </li>
+        </ul>
+    </div>
+    <!--更多-->
+    <div class="changeAddressNum">
+        <span @click="moreAddress()" v-if="showLen < addressList.length">更多<i class="fa fa-angle-down"></i></span>
+        <span @click="lessAddress()" v-if="showLen == addressList.length">收起<i class="fa fa-angle-up"></i></span>
+    </div>
+    <!--配送方式字样-->
+    <div class="subTitle">
+        <span>配送方式</span>
+    </div>
+    <!--配送方式卡片-->
+    <div class="delivery">
+        <ul>
+            <li class="current">
+                <p class="deliveryStyle">标准配送</p>
+                <p class="deliveryFee">free</p>
+            </li>
+            <li>
+                <p class="deliveryStyle">高级配送</p>
+                <p class="deliveryFee">180</p>
+            </li>
+        </ul>
+    </div>
+    <hr style="height: 1px; background: #cccccc;">
+    <div class="nextStep">
+        <button class="btn btn-danger">下一步</button>
+    </div>
+</section>
+<script type="text/javascript" src="static/vue/vue.min.js"></script>
+<script type="text/javascript" src="static/vue/vue-resource.js"></script>
+<script type="text/javascript" src="js/address.js"></script>
 </body>
 </html>

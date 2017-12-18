@@ -36,11 +36,11 @@
                             <div class="cart-item-check">
                                 <!--(8)监听item中的check属性，如果true，表示当前是选中状态，使用fa-check-square-o类，如果是false，表示当前是未选中状态，使用fa-square-o类
                                 并且通过@click事件绑定的方法来改变item.check的值，在item中如果没有check属性，需要使用Vue.set()方法或$set()方法来给item注册属性-->
-                                <i class="fa" v-bind:class="item.check ? 'fa-check-square-o' : 'fa-square-o'"
+                                <i class="fa" :class="item.check ? 'fa-check-square-o' : 'fa-square-o'"
                                    @click="checkedProduct(item)"></i>
                             </div>
                             <div class="cart-item-pic">
-                                <img v-bind:src="item.productImage" width="100%" align="center">
+                                <img :src="item.productImage" width="100%" align="center">
                             </div>
                             <div class="cart-item-name">{{item.productName}}</div>
                             <div class="item-include">
@@ -63,7 +63,7 @@
                         <div class="num">
                             <div>
                                 <!--(5)vue绑定事件：两种方式，一种是v-on，一种是直接通过@-->
-                                <span class="add" v-on:click="changeQuantity(item, 1)">+</span>
+                                <span class="add" @click="changeQuantity(item, 1)">+</span>
                                 <input type="text" readonly v-model="item.productQuantity">
                                 <span class="delete" @click="changeQuantity(item, -1)">-</span>
                             </div>
@@ -109,7 +109,7 @@
             </div>
             <div class="md-content">
                 <div class="confirm-tips">
-                    <p id="cusLanInfo">你确认删除此订单信息吗?</p>
+                    <p id="cusLanInfo">你确认删除此商品信息吗?</p>
                 </div>
                 <div class="btn-wrap col-2">
                     <button class="btn btn--m" id="btnModalConfirm" @click="delProduct">Yes</button>

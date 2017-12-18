@@ -14,7 +14,7 @@ var vm = new Vue({
         //过滤器分为局部过滤器和全局过滤器，下面这个是局部过滤器
         moneyFormat : function (data) {
             //toFixed(n)，保留2位小数
-            return "￥ " + data.toFixed(2);
+            return "￥" + data.toFixed(2);
         }
     },
     //(4)mounted,代替了vue1.0中的ready函数，应该注意的是，使用 mounted 并不能保证钩子函数中的 this.$el 在 document 中。

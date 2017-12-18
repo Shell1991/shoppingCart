@@ -1,0 +1,183 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 90%;
+}
+.step ul{
+    padding:25px 0 50px 0;
+    overflow: hidden;
+}
+.step ul li{
+    position: relative;
+    width: 25%;
+    font-size: 16px;
+    border-bottom: 2px solid #cccccc;
+    list-style-type: none;
+    float: left;
+    text-align: center;
+    padding:15px;
+    color: #cccccc;
+}
+.step ul li.current{
+    color: #EE7A23;
+    border-bottom-color: #EE7A23;
+}
+.step li.current:after{
+    background: #EE7A23;
+}
+.step ul li:after{
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    margin-left: -7px;
+    width:14px;
+    height: 14px;
+    background-color: #cccccc;
+    content: "";
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.subTitle{
+    position: relative;
+    text-align: center;
+    padding: 10px;
+}
+.subTitle span{
+    font-size: 18px;
+    font-weight: bold;
+    color: #605F5F;
+    padding:6px 12px;
+    background: #ffffff;
+    z-index: 0;
+}
+.subTitle:after{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    left: 0;
+    background: #cccccc;
+    content: '';
+    z-index: -1;
+}
+
+.addressCard ul{
+    padding: 0;
+    margin: 30px 0px 15px 0px;
+    overflow: hidden;
+}
+.addressCard ul li{
+    position: relative;
+    border:2px solid #cccccc;
+    width: 23.5%;
+    height: 162px;
+    margin: 10px 2% 10px 0px;
+    padding: 20px 20px 40px 20px;
+    list-style-type:none;
+    cursor: pointer;
+    float: left;
+}
+/*设置每第几个元素的样式*/
+.addressCard li:nth-child(4n) {
+    margin-right: 0;
+}
+.addressCard ul li.current{
+    border-color: #EE7A23;
+}
+
+.addressCard .name{
+    font-size: 18px;
+    font-weight: normal;
+}
+.addressCard .name, .addressCard .address, .addressCard .tel{
+    margin-bottom: 8px;
+}
+
+.addressCard .addressEdit, .addressCard .addressDelete{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+}
+.addressCard .addressEdit{
+    top: 10px;
+    right:10px;
+}
+.addressCard .addressDelete{
+    bottom: 15px;
+    right:10px;
+}
+.addressCard .addressDefault{
+    position: absolute;
+    bottom: 15px;
+    left:20px;
+    width: 100px;
+    height: 20px;
+}
+.addressDefault a{
+    color: #EE7A23;
+}
+
+.addNewAddress{
+    text-align: center;
+}
+.addNewAddress i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -35px;
+    margin-left: -25px;
+    font-size: 50px;
+    font-weight: normal;
+}
+.addNewAddress p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 15px;
+    margin-left: -40px;
+}
+.changeAddressNum{
+    text-align: center;
+    margin-bottom: 30px;
+    color:#EE7A23;
+    cursor: pointer;
+}
+.delivery{
+    text-align: center;
+}
+.delivery ul{
+    display: inline-block;
+    padding:0;
+    margin: 30px 0px;
+}
+.delivery ul li{
+    width: 300px;
+    list-style-type: none;
+    border:2px solid #cccccc;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    float: left;
+}
+.delivery ul li:first-child{
+    margin-right: 15px;
+}
+.delivery ul li.current{
+    border-color: #EE7A23;
+}
+.delivery{
+    font-size: 18px;
+}
+.delivery .deliveryFee{
+    font-weight: bold;
+}
+.nextStep{
+    text-align: center;
+}
